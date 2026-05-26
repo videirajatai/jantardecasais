@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Encontro com Deus - Uma experiência transformadora de 3 dias na Igreja Videira de Jataí. Cura, libertação, restauração de sonhos e um verdadeiro encontro com o amor de Deus.">
+    <title>Encontro com Deus | Igreja Videira de Jataí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <style>
+        /* ===== VARIÁVEIS E ESTILOS BASE (MESMOS DO SITE PRINCIPAL) ===== */
+        :root {
+            --primary: #6B2346;
+            --primary-light: #8E3460;
+            --secondary: #D4AF37;
+            --secondary-light: #F2DE96;
+            --accent: #E86A33;
+            --bg-color: #FAFAFA;
+            --surface: #FFFFFF;
+            --surface-alt: #F3F0EB;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px -5px rgba(107, 35, 70, 0.08);
+            --shadow-lg: 0 20px 40px -10px rgba(107, 35, 70, 0.15);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 100px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Scrollbar customizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-light);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* ===== TOPO SIMPLES (SEM HEADER FIXO) ===== */
+        .top-bar {
+            background: var(--surface);
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid rgba(107, 35, 70, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-area img {
+            height: 44px;
+            width: auto;
+            border-radius: 8px;
+        }
+        .logo-area .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        .logo-area .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .btn-voltar {
+            background: transparent;
+            border: 1.5px solid var(--primary-light);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-voltar:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== SEÇÕES GERAIS ===== */
+        section {
+            padding: 6rem 2rem;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .section-sub {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+        .section-sub::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        /* Hero específico da página */
+        .hero-encontro {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #2a0a1a 0%, #1a0510 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-encontro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=2070&auto=format&fit=crop') center/cover;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-encontro h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .hero-encontro p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text-main);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards e grids */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .info-card {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary-light);
+        }
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--surface-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+        }
+        .icon-wrapper i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Lista de sintomas / sofrimentos */
+        .sintomas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .sintoma-item {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--secondary);
+        }
+        .sintoma-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        .sintoma-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Benefícios (o que você vai encontrar) */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .beneficio-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            padding: 2rem;
+        }
+        .beneficio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .beneficio-num {
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem auto;
+        }
+        .beneficio-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Banner CTA */
+        .banner-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #3A1326 100%);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin: 4rem 0;
+        }
+        .banner-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .btn-grande {
+            background: var(--secondary);
+            color: var(--text-main);
+            padding: 1rem 2.5rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        .btn-grande:hover {
+            background: #E6C24A;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Accordion */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.2rem 1.8rem;
+            background: var(--surface);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 1.8rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: var(--text-muted);
+            border-top: 1px solid transparent;
+        }
+        .faq-item.active .faq-answer {
+            padding: 1.2rem 1.8rem;
+            max-height: 300px;
+            border-top-color: var(--secondary-light);
+        }
+
+        /* Depoimentos */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .depoimento-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .depoimento-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        .depoimento-texto {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .depoimento-autor {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #111111;
+            color: #888888;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Animações */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-encontro h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .banner-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                padding: 0.8rem 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            section {
+                padding: 4rem 1.2rem;
+            }
+            .hero-encontro h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .banner-cta {
+                padding: 2.5rem 1.5rem;
+            }
+            .banner-cta h2 {
+                font-size: 1.5rem;
+            }
+            .faq-question {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOPO SIMPLES COM LOGO + BOTÃO VOLTAR (sem o menu fixo) -->
+<div class="top-bar">
+    <a href="/" class="logo-area">
+        <img src="logo.png" alt="Logo Videira" onerror="this.style.display='none'">
+        <div class="logo-text">VIDEIRA <span>de Jataí</span></div>
+    </a>
+    <a href="/" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar ao site</a>
+</div>
+
+<main>
+    <!-- Hero específico -->
+    <section class="hero-encontro">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-fire"></i> 3 dias que podem mudar sua história</span>
+            <h1>Encontro com Deus</h1>
+            <p>Uma imersão espiritual profunda para restaurar sua fé, curar suas feridas e reacender seus sonhos.</p>
+            <a href="https://www.videirajatai.com.br/encontrocomdeus" class="btn-grande" style="background: var(--secondary); color: var(--text-main);">Quero Participar <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- O QUE É O ENCONTRO COM DEUS? -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Sobre o Evento</div>
+                <h2 class="section-title">O que é o Encontro com Deus?</h2>
+            </div>
+            <div class="info-card reveal" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <div class="icon-wrapper"><i class="fas fa-church"></i></div>
+                <p style="font-size: 1.1rem; color: var(--text-muted);">O Encontro com Deus é um evento de <strong>3 dias</strong> destinado a fornecer um ambiente acolhedor e seguro para todos aqueles que desejam fortalecer sua relação com Deus. Durante esse período, você terá a chance de se desconectar das distrações cotidianas e se concentrar na mudança de vida que precisa de uma maneira profunda e significativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOCÊ ESTÁ PASSANDO POR ISSO? -->
+    <section style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Identificação</div>
+                <h2 class="section-title">Você está passando por isso?</h2>
+            </div>
+            <div class="sintomas-grid reveal">
+                <div class="sintoma-item">
+                    <i class="fas fa-frown"></i>
+                    <h4>Sua vida não está como você gostaria?</h4>
+                    <p>Pretende mudar o rumo do que está vivendo para melhor</p>
+                </div>
+                <div class="sintoma-item">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>Sofre de crises existenciais?</h4>
+                    <p>Descubra o propósito para o qual Deus te criou</p>
+                </div>
+                <div class="sintoma-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Crises de ansiedade?</h4>
+                    <p>Ansiedade e depressão têm cura, a palavra de Deus pode te ajudar</p>
+                </div>
+                <div class="sintoma-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Problemas familiares?</h4>
+                    <p>Famílias inteiras foram restauradas depois de passarem pelo encontro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECISANDO DE UMA MUDANÇA RADICAL? -->
+    <section>
+        <div class="container">
+            <div class="banner-cta reveal">
+                <h2>Precisando de uma mudança radical?</h2>
+                <p>Tudo pode mudar em 3 Dias. Você está a uma decisão de viver algo novo.</p>
+                <a href="https://www.videirajatai.com.br/encontrocomdeus" class="btn-grande" style="background: white; color: var(--primary);">Quero essa Mudança <i class="fas fa-heart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE VOCÊ VAI ENCONTRAR -->
+    <section style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Benefícios</div>
+                <h2 class="section-title">O que você vai encontrar no Encontro com Deus?</h2>
+            </div>
+            <div class="beneficios-grid reveal">
+                <div class="beneficio-card"><div class="beneficio-num">01</div><h3>Cura Física e Emocional</h3><p>O Encontro aborda em vários momentos a cura das emoções, mente e vontade, além de orações para cura física e milagres.</p></div>
+                <div class="beneficio-card"><div class="beneficio-num">02</div><h3>Libertação de Vícios e Pecados</h3><p>Momentos de libertação para quem precisa se livrar de vícios ou de trabalhos espirituais feitos contra você.</p></div>
+                <div class="beneficio-card"><div class="beneficio-num">03</div><h3>Restauração de Sonhos</h3><p>Lugar de restauração, para voltar a ser feliz, a sonhar e viver bem com a vida e com Deus.</p></div>
+                <div class="beneficio-card"><div class="beneficio-num">04</div><h3>O Verdadeiro Evangelho</h3><p>Todas as ministrações seguem uma linha com o intuito de apresentar o pleno evangelho em 3 dias.</p></div>
+                <div class="beneficio-card"><div class="beneficio-num">05</div><h3>O Verdadeiro Amor</h3><p>Sua identidade de filho de Deus é reafirmada o tempo todo, você encontrará um amor incondicional.</p></div>
+                <div class="beneficio-card"><div class="beneficio-num">06</div><h3>Uma Verdadeira Família</h3><p>Oportunidade de conhecer novos amigos e ser inserido na vida da igreja.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUE PARTICIPAR -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Motivos</div>
+                <h2 class="section-title">Por que participar do Encontro com Deus?</h2>
+            </div>
+            <div class="cards-grid reveal">
+                <div class="info-card"><div class="icon-wrapper"><i class="fas fa-user-plus"></i></div><h3>Transformação Pessoal</h3><p>Experiência transformadora que ajuda a se tornar mais compassivo, amoroso e alinhado com seus valores espirituais.</p></div>
+                <div class="info-card"><div class="icon-wrapper"><i class="fas fa-question"></i></div><h3>Busca por Respostas</h3><p>Espaço seguro para explorar perguntas espirituais ou existenciais e receber insights valiosos.</p></div>
+                <div class="info-card"><div class="icon-wrapper"><i class="fas fa-hand-holding-heart"></i></div><h3>Nova Comunidade</h3><p>Rede de apoio onde você se sente aceito, compreendido e apoiado por outros participantes.</p></div>
+                <div class="info-card"><div class="icon-wrapper"><i class="fas fa-fire"></i></div><h3>Renovo da Fé</h3><p>Ambiente propício para se reconectar com sua espiritualidade e renovar sua fé.</p></div>
+                <div class="info-card"><div class="icon-wrapper"><i class="fas fa-calendar-week"></i></div><h3>Quebra de Rotina</h3><p>Pausa na rotina diária, desconectando do ritmo acelerado para se concentrar em aspectos mais profundos da existência.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Dúvidas</div>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item"><div class="faq-question">O que devo levar para o Encontro? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Bíblia, itens de higiene pessoal, roupas confortáveis, roupa de cama e um coração aberto para o que Deus quer fazer em você.</div></div>
+                <div class="faq-item"><div class="faq-question">Quanto tempo dura o Encontro? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">O Encontro tem duração de 2 ou 3 dias, geralmente começando na sexta-feira à noite e terminando no domingo à tarde.</div></div>
+                <div class="faq-item"><div class="faq-question">Precisa ser membro da igreja para participar? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Não! O Encontro é aberto a todos que desejam uma experiência com Deus, independente de denominação ou vínculo eclesiástico.</div></div>
+                <div class="faq-item"><div class="faq-question">Há custo para participar? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">As inscrições variam, pois é necessário custear a alimentação e a estrutura. Mas O Valor estará sempre especificado no formilário da incrição. Entre em contato com a secretaria da igreja, para mais detalhes.</div></div>
+                <div class="faq-item"><div class="faq-question">Posso levar crianças? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Não. Os encontros são dívidos por faixa etária, existem encontros apropriados para crianças, juvenis e adolescentes até 12 anos. Jovens de 13 a 17 anos participam junto com os adultos, porém devem apresentar autorização assinada pelos pais ou responsavéis.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+   <!--<section>
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-sub">Histórias Reais</div>
+                <h2 class="section-title">O que dizem quem viveu</h2>
+            </div>
+            <div class="depoimentos-grid reveal">
+                <div class="depoimento-card"><i class="fas fa-quote-left"></i><p class="depoimento-texto">"Antes do Encontro eu vivia em depressão profunda. Hoje tenho paz e propósito. Deus transformou minha história!"</p><p class="depoimento-autor">— Mariana S.</p></div>
+                <div class="depoimento-card"><i class="fas fa-quote-left"></i><p class="depoimento-texto">"Meu casamento estava destruído, mas durante o Encontro Deus restaurou nossa família. Somos gratos eternamente."</p><p class="depoimento-autor">— Carlos e Lúcia</p></div>
+                <div class="depoimento-card"><i class="fas fa-quote-left"></i><p class="depoimento-texto">"Nunca imaginei que podia recomeçar. O Encontro me ensinou que o amor de Deus é real e transformador."</p><p class="depoimento-autor">— Fernanda R.</p></div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- CALL TO ACTION FINAL -->
+    <div class="container reveal">
+        <div class="banner-cta">
+            <h2>Não espere mais, sua mudança pode começar agora</h2>
+            <p>As vagas são limitadas. Garanta sua inscrição e viva uma experiência que vai marcar sua vida para sempre.</p>
+            <a href="https://www.videirajatai.com.br/encontrocomdeus" class="btn-grande" style="background: white; color: var(--primary);">Quero Participar <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <h2 class="footer-logo logo-text">VIDEIRA</h2>
+    <div class="footer-links">
+        <a href="/">Início</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/programacao">Programação</a>
+        <a href="https://www.videirajatai.com.br/encontrocomdeus">Encontro com Deus</a>
+    </div>
+    <p style="font-size: 0.9rem;">© 2026 Igreja Videira de Jataí. Pastor Gemerson Araujo.</p>
+</footer>
+
+<script>
+    // Reveal animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Accordion FAQ
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+    // Função para registrar acesso no contador
+function registrarAcesso(pagina) {
+  var urlGAS = "https://script.google.com/macros/s/AKfycbxnystn3UqAKnfLUgw7tXS8CzrnpxTS0iax80rhMCRs-T47ibodGYvbRw2KRrtsnCzn/exec";
+  // Usamos ?contador=principal ou ?contador=encontro
+  fetch(urlGAS + "?contador=" + pagina, { method: "GET", mode: "no-cors" })
+    .catch(erro => console.warn("Erro ao registrar acesso:", erro));
+}
+
+// Executa ao carregar a página
+document.addEventListener("DOMContentLoaded", function() {
+  // Detecta qual página está sendo acessada
+  var pagina = window.location.pathname.includes("encontro") ? "encontro" : "principal";
+  registrarAcesso(pagina);
+});
+
+
+    
+</script>
+</body>
+</html>

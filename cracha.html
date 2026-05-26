@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>impressão Crachá</title>
+    
+    <link rel="icon" href="https://img.linkme.bio/img/2021/05/10141826/logo-videira-circulo-1.png">
+    <link rel="apple-touch-icon" href="https://img.linkme.bio/img/2021/05/10141826/logo-videira-circulo-1.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Inscrição">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%; /* Ajustado para 100% para não cortar a tela embaixo */
+            overflow: hidden;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos da Tela de Carregamento */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #splash-screen img {
+            width: 200px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Animação de pulsar a logo */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* O truque: o iframe ocupa a tela toda e esconde o topo do Google */
+        iframe {
+            display: block; /* Garante que não tenha margens fantasmas no fundo */
+            width: 100%;
+            height: 100%; /* Ajustado para 100% no lugar de 100vh */
+            border: none;
+            margin: 0;
+            padding: 0;
+            /* margin-top: -44px; (Mantido comentado como no seu original) */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <img src="https://img.linkme.bio/img/2021/05/10141826/logo-videira-circulo-1.png" alt="Carregando Inscrição...">
+    </div>
+
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbxqwY-lj2t85_clL-t4-Iiy-Gmw_YOwM8_1QXKGY_YXov9bJwhhtds4z4raWPopyFjLpg/exec?action=id"
+        onload="esconderSplashScreen()">
+    </iframe>
+
+    <script>
+        // Função para esconder a tela de carregamento quando o iframe estiver pronto
+        function esconderSplashScreen() {
+            const splash = document.getElementById('splash-screen');
+            splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
+            
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
